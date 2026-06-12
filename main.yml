@@ -22,17 +22,15 @@ jobs:
           python -m pip install --upgrade pip
           pip install flet
 
-      # FIX 1: Explicitly download the exact Flutter SDK version Flet is asking for
       - name: Set up Flutter SDK
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.41.7'
           channel: 'stable'
 
-      # FIX 2: Added a non-interactive flag so it compiles cleanly without asking for prompts
       - name: Build Flet Web App
         run: |
-          flet build web tuni.py --base-url /My-web-portfolio/
+          flet build web tuni.py --base-url /Aletta-portfolio/
 
       - name: Upload Production Artifacts
         uses: actions/upload-pages-artifact@v3
