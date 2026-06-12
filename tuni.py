@@ -52,12 +52,10 @@ def main(page: ft.Page):
                 content=ft.Column([
                     ft.Icon(ft.icons.PICTURE_AS_PDF_ROUNDED, size=40, color=ft.colors.RED_400),
                     ft.Text(title, weight=ft.FontWeight.BOLD, text_align=ft.TextAlign.CENTER, max_lines=2, size=13),
-                    ft.Text("Click to read", size=11, color=ft.colors.BLUE_200)
+                    ft.Text("Certificate", size=11, color=ft.colors.BLUE_200)
                 ], alignment=ft.MainAxisAlignment.CENTER, horizontal_alignment=ft.CrossAxisAlignment.CENTER),
                 alignment=ft.alignment.center,
                 padding=10,
-                # FIXED FOR WEB HOSTING: Uses relative root folder paths and enforces browser rendering
-                on_click=lambda e: page.launch_url(f"{file_name}", web_browser=True), 
                 ink=True
             )
         )
@@ -123,15 +121,15 @@ def main(page: ft.Page):
                     columns=[
                         ft.DataColumn(ft.Text("Phase")),
                         ft.DataColumn(ft.Text("Weeks / Dates")),
-                        ft.DataColumn(ft.Text("Core Deliverables & Description")),
+                        ft.DataColumn(ft.Text("Core Deliverables")),
                     ],
                     rows=[
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("PHASE 0")), ft.DataCell(ft.Text("Wks 1-2 (02–13 Mar)")), ft.DataCell(ft.Text("Group formation, role assignments, GitHub repo setup, environment validation."))]),
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("PHASE 1")), ft.DataCell(ft.Text("Wks 3-4 (16–27 Mar)")), ft.DataCell(ft.Text("Pitch Week: Present 3 ideas to Mr. Abisai; official registration."))]),
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("PHASE 2")), ft.DataCell(ft.Text("Wks 5-8 (30 Mar–25 Apr)")), ft.DataCell(ft.Text("System Requirements Specification (SRS) document submission (Deadline: 25 Apr)."))]),
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("PHASE 3")), ft.DataCell(ft.Text("Wks 9-12 (27 Apr–30 May)")), ft.DataCell(ft.Text("UI/UX interactive high-fidelity prototyping in Figma/Adobe XD (Deadline: 30 May)."))]),
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("PHASE 4A")), ft.DataCell(ft.Text("Wk 13 (01–06 Jun)")), ft.DataCell(ft.Text("Live Expo Progress Demonstration running on devices to receive lecturer feedback."))]),
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("PHASE 4B")), ft.DataCell(ft.Text("Wk 14 (08–13 Jun)")), ft.DataCell(ft.Text("Final Sprint: Implement feedback, compile APK via EAS Build (Final Deadline: 13 Jun)."))]),
+                        ft.DataRow(cells=[ft.DataCell(ft.Text("PHASE 0")), ft.DataCell(ft.Text("Wks 1-2")), ft.DataCell(ft.Text("Group formation, GitHub setup"))]),
+                        ft.DataRow(cells=[ft.DataCell(ft.Text("PHASE 1")), ft.DataCell(ft.Text("Wks 3-4")), ft.DataCell(ft.Text("Pitch Week presentations"))]),
+                        ft.DataRow(cells=[ft.DataCell(ft.Text("PHASE 2")), ft.DataCell(ft.Text("Wks 5-8")), ft.DataCell(ft.Text("SRS documentation"))]),
+                        ft.DataRow(cells=[ft.DataCell(ft.Text("PHASE 3")), ft.DataCell(ft.Text("Wks 9-12")), ft.DataCell(ft.Text("UI/UX prototyping"))]),
+                        ft.DataRow(cells=[ft.DataCell(ft.Text("PHASE 4A")), ft.DataCell(ft.Text("Wk 13")), ft.DataCell(ft.Text("Live Expo Demo"))]),
+                        ft.DataRow(cells=[ft.DataCell(ft.Text("PHASE 4B")), ft.DataCell(ft.Text("Wk 14")), ft.DataCell(ft.Text("Final Sprint"))]),
                     ],
                 )
             ], scroll=ft.ScrollMode.AUTO),
@@ -142,25 +140,25 @@ def main(page: ft.Page):
             ft.Row([
                 ft.DataTable(
                     columns=[
-                        ft.DataColumn(ft.Text("Wk")),
+                        ft.DataColumn(ft.Text("Week")),
                         ft.DataColumn(ft.Text("Dates")),
-                        ft.DataColumn(ft.Text("Primary Project Focus Area")),
+                        ft.DataColumn(ft.Text("Focus Area")),
                     ],
                     rows=[
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("1")), ft.DataCell(ft.Text("02–06 Mar")), ft.DataCell(ft.Text("Group formation, roles assigned, create GitHub repo and share URL"))]),
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("2")), ft.DataCell(ft.Text("09–13 Mar")), ft.DataCell(ft.Text("Brainstorming 3 ideas; verify Expo + React Native + Firebase environments"))]),
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("3")), ft.DataCell(ft.Text("16–20 Mar")), ft.DataCell(ft.Text("Pitch Week Begins: First batch of groups present to Mr. Abisai"))]),
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("4")), ft.DataCell(ft.Text("23–27 Mar")), ft.DataCell(ft.Text("Pitch Week Closes: Remaining groups present; register approved app idea"))]),
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("5")), ft.DataCell(ft.Text("30 Mar–03 Apr")), ft.DataCell(ft.Text("Begin SRS: Problem statements, target users, scope outlines, overview"))]),
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("6")), ft.DataCell(ft.Text("06–10 Apr")), ft.DataCell(ft.Text("SRS Development: Functional requirements (FR) and Firebase collection designs"))]),
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("7")), ft.DataCell(ft.Text("13–17 Apr")), ft.DataCell(ft.Text("SRS Development: Non-functional requirements, constraints, use case diagrams"))]),
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("8")), ft.DataCell(ft.Text("20–25 Apr")), ft.DataCell(ft.Text("Final edits, SRS verification review, official submission by 25 April 23:59"))]),
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("9")), ft.DataCell(ft.Text("27 Apr–01 May")), ft.DataCell(ft.Text("Figma design start: Onboarding views, splash screens, main structural layouts"))]),
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("10")), ft.DataCell(ft.Text("04–08 May")), ft.DataCell(ft.Text("Figma design: Core interactive app screens, data fields, forms, lists"))]),
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("11")), ft.DataCell(ft.Text("11–15 May")), ft.DataCell(ft.Text("Figma layout completion: Interactive wireframe linking and design rationale draft"))]),
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("12")), ft.DataCell(ft.Text("18–30 May")), ft.DataCell(ft.Text("Prototype tracking refinements, presentation, official submission by 30 May 23:59"))]),
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("13")), ft.DataCell(ft.Text("01–06 Jun")), ft.DataCell(ft.Text("Live Progress Demo: Present active Expo Go app to Mr. Abisai for critiques"))]),
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("14")), ft.DataCell(ft.Text("08–13 Jun")), ft.DataCell(ft.Text("Final Sprint: Cloud EAS build for standalone APK; complete documentation packages"))]),
+                        ft.DataRow(cells=[ft.DataCell(ft.Text("1")), ft.DataCell(ft.Text("02–06 Mar")), ft.DataCell(ft.Text("Group formation"))]),
+                        ft.DataRow(cells=[ft.DataCell(ft.Text("2")), ft.DataCell(ft.Text("09–13 Mar")), ft.DataCell(ft.Text("Brainstorming ideas"))]),
+                        ft.DataRow(cells=[ft.DataCell(ft.Text("3")), ft.DataCell(ft.Text("16–20 Mar")), ft.DataCell(ft.Text("Pitch Week begins"))]),
+                        ft.DataRow(cells=[ft.DataCell(ft.Text("4")), ft.DataCell(ft.Text("23–27 Mar")), ft.DataCell(ft.Text("Pitch Week closes"))]),
+                        ft.DataRow(cells=[ft.DataCell(ft.Text("5")), ft.DataCell(ft.Text("30 Mar–03 Apr")), ft.DataCell(ft.Text("SRS start"))]),
+                        ft.DataRow(cells=[ft.DataCell(ft.Text("6")), ft.DataCell(ft.Text("06–10 Apr")), ft.DataCell(ft.Text("SRS development"))]),
+                        ft.DataRow(cells=[ft.DataCell(ft.Text("7")), ft.DataCell(ft.Text("13–17 Apr")), ft.DataCell(ft.Text("SRS requirements"))]),
+                        ft.DataRow(cells=[ft.DataCell(ft.Text("8")), ft.DataCell(ft.Text("20–25 Apr")), ft.DataCell(ft.Text("SRS submission"))]),
+                        ft.DataRow(cells=[ft.DataCell(ft.Text("9")), ft.DataCell(ft.Text("27 Apr–01 May")), ft.DataCell(ft.Text("Figma design start"))]),
+                        ft.DataRow(cells=[ft.DataCell(ft.Text("10")), ft.DataCell(ft.Text("04–08 May")), ft.DataCell(ft.Text("Core screens design"))]),
+                        ft.DataRow(cells=[ft.DataCell(ft.Text("11")), ft.DataCell(ft.Text("11–15 May")), ft.DataCell(ft.Text("Figma completion"))]),
+                        ft.DataRow(cells=[ft.DataCell(ft.Text("12")), ft.DataCell(ft.Text("18–30 May")), ft.DataCell(ft.Text("Prototype refinement"))]),
+                        ft.DataRow(cells=[ft.DataCell(ft.Text("13")), ft.DataCell(ft.Text("01–06 Jun")), ft.DataCell(ft.Text("Live Demo"))]),
+                        ft.DataRow(cells=[ft.DataCell(ft.Text("14")), ft.DataCell(ft.Text("08–13 Jun")), ft.DataCell(ft.Text("Final Sprint"))]),
                     ],
                 )
             ], scroll=ft.ScrollMode.AUTO)
