@@ -32,7 +32,7 @@ jobs:
       # FIX 2: Added a non-interactive flag so it compiles cleanly without asking for prompts
       - name: Build Flet Web App
         run: |
-          flet build web tuni.py --base-url /My-web-portfolio/ --no-interactive
+          flet build web tuni.py --base-url /My-web-portfolio/
 
       - name: Upload Production Artifacts
         uses: actions/upload-pages-artifact@v3
