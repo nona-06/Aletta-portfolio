@@ -88,7 +88,7 @@ def main(page: ft.Page):
                 controls=[
                     ft.Container(
                         content=ft.Image(
-                            src="zera.JPG", 
+                            src="assets/zera.JPG", 
                             fit=ft.ImageFit.CONTAIN,
                             border_radius=12,
                         ),
@@ -107,7 +107,7 @@ def main(page: ft.Page):
         margin=ft.margin.only(bottom=15)
     )
 
-    # 2. Timeline Section
+    # 2. Timeline Section - Fixed for web compatibility
     timeline_section = ft.Container(
         key="timeline",
         content=ft.Column([
@@ -116,51 +116,95 @@ def main(page: ft.Page):
             ft.Divider(color=ft.colors.OUTLINE),
             
             ft.Text("Project Phases Overview", style=ft.TextThemeStyle.TITLE_MEDIUM, weight=ft.FontWeight.BOLD),
-            ft.Row([
-                ft.DataTable(
-                    columns=[
-                        ft.DataColumn(ft.Text("Phase")),
-                        ft.DataColumn(ft.Text("Weeks / Dates")),
-                        ft.DataColumn(ft.Text("Core Deliverables")),
-                    ],
-                    rows=[
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("PHASE 0")), ft.DataCell(ft.Text("Wks 1-2")), ft.DataCell(ft.Text("Group formation, GitHub setup"))]),
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("PHASE 1")), ft.DataCell(ft.Text("Wks 3-4")), ft.DataCell(ft.Text("Pitch Week presentations"))]),
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("PHASE 2")), ft.DataCell(ft.Text("Wks 5-8")), ft.DataCell(ft.Text("SRS documentation"))]),
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("PHASE 3")), ft.DataCell(ft.Text("Wks 9-12")), ft.DataCell(ft.Text("UI/UX prototyping"))]),
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("PHASE 4A")), ft.DataCell(ft.Text("Wk 13")), ft.DataCell(ft.Text("Live Expo Demo"))]),
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("PHASE 4B")), ft.DataCell(ft.Text("Wk 14")), ft.DataCell(ft.Text("Final Sprint"))]),
-                    ],
-                )
-            ], scroll=ft.ScrollMode.AUTO),
+            ft.Column([
+                ft.Row([
+                    ft.Column([
+                        ft.Text("Phase", weight=ft.FontWeight.BOLD, size=12),
+                        ft.Text("PHASE 0", size=11),
+                        ft.Text("PHASE 1", size=11),
+                        ft.Text("PHASE 2", size=11),
+                        ft.Text("PHASE 3", size=11),
+                        ft.Text("PHASE 4A", size=11),
+                        ft.Text("PHASE 4B", size=11),
+                    ], expand=2),
+                    ft.Column([
+                        ft.Text("Weeks / Dates", weight=ft.FontWeight.BOLD, size=12),
+                        ft.Text("Wks 1-2", size=11),
+                        ft.Text("Wks 3-4", size=11),
+                        ft.Text("Wks 5-8", size=11),
+                        ft.Text("Wks 9-12", size=11),
+                        ft.Text("Wk 13", size=11),
+                        ft.Text("Wk 14", size=11),
+                    ], expand=2),
+                    ft.Column([
+                        ft.Text("Core Deliverables", weight=ft.FontWeight.BOLD, size=12),
+                        ft.Text("Group formation, GitHub setup", size=11),
+                        ft.Text("Pitch Week presentations", size=11),
+                        ft.Text("SRS documentation", size=11),
+                        ft.Text("UI/UX prototyping", size=11),
+                        ft.Text("Live Expo Demo", size=11),
+                        ft.Text("Final Sprint", size=11),
+                    ], expand=3),
+                ], spacing=10)
+            ]),
             
             ft.Container(height=15),
             
             ft.Text("Detailed Weekly Schedule", style=ft.TextThemeStyle.TITLE_MEDIUM, weight=ft.FontWeight.BOLD),
-            ft.Row([
-                ft.DataTable(
-                    columns=[
-                        ft.DataColumn(ft.Text("Week")),
-                        ft.DataColumn(ft.Text("Dates")),
-                        ft.DataColumn(ft.Text("Focus Area")),
-                    ],
-                    rows=[
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("1")), ft.DataCell(ft.Text("02–06 Mar")), ft.DataCell(ft.Text("Group formation"))]),
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("2")), ft.DataCell(ft.Text("09–13 Mar")), ft.DataCell(ft.Text("Brainstorming ideas"))]),
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("3")), ft.DataCell(ft.Text("16–20 Mar")), ft.DataCell(ft.Text("Pitch Week begins"))]),
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("4")), ft.DataCell(ft.Text("23–27 Mar")), ft.DataCell(ft.Text("Pitch Week closes"))]),
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("5")), ft.DataCell(ft.Text("30 Mar–03 Apr")), ft.DataCell(ft.Text("SRS start"))]),
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("6")), ft.DataCell(ft.Text("06–10 Apr")), ft.DataCell(ft.Text("SRS development"))]),
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("7")), ft.DataCell(ft.Text("13–17 Apr")), ft.DataCell(ft.Text("SRS requirements"))]),
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("8")), ft.DataCell(ft.Text("20–25 Apr")), ft.DataCell(ft.Text("SRS submission"))]),
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("9")), ft.DataCell(ft.Text("27 Apr–01 May")), ft.DataCell(ft.Text("Figma design start"))]),
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("10")), ft.DataCell(ft.Text("04–08 May")), ft.DataCell(ft.Text("Core screens design"))]),
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("11")), ft.DataCell(ft.Text("11–15 May")), ft.DataCell(ft.Text("Figma completion"))]),
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("12")), ft.DataCell(ft.Text("18–30 May")), ft.DataCell(ft.Text("Prototype refinement"))]),
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("13")), ft.DataCell(ft.Text("01–06 Jun")), ft.DataCell(ft.Text("Live Demo"))]),
-                        ft.DataRow(cells=[ft.DataCell(ft.Text("14")), ft.DataCell(ft.Text("08–13 Jun")), ft.DataCell(ft.Text("Final Sprint"))]),
-                    ],
-                )
+            ft.Column([
+                ft.Row([
+                    ft.Column([
+                        ft.Text("Week", weight=ft.FontWeight.BOLD, size=11),
+                        ft.Text("1", size=10),
+                        ft.Text("2", size=10),
+                        ft.Text("3", size=10),
+                        ft.Text("4", size=10),
+                        ft.Text("5", size=10),
+                        ft.Text("6", size=10),
+                        ft.Text("7", size=10),
+                        ft.Text("8", size=10),
+                        ft.Text("9", size=10),
+                        ft.Text("10", size=10),
+                        ft.Text("11", size=10),
+                        ft.Text("12", size=10),
+                        ft.Text("13", size=10),
+                        ft.Text("14", size=10),
+                    ], expand=1),
+                    ft.Column([
+                        ft.Text("Dates", weight=ft.FontWeight.BOLD, size=11),
+                        ft.Text("02–06 Mar", size=10),
+                        ft.Text("09–13 Mar", size=10),
+                        ft.Text("16–20 Mar", size=10),
+                        ft.Text("23–27 Mar", size=10),
+                        ft.Text("30 Mar–03 Apr", size=10),
+                        ft.Text("06–10 Apr", size=10),
+                        ft.Text("13–17 Apr", size=10),
+                        ft.Text("20–25 Apr", size=10),
+                        ft.Text("27 Apr–01 May", size=10),
+                        ft.Text("04–08 May", size=10),
+                        ft.Text("11–15 May", size=10),
+                        ft.Text("18–30 May", size=10),
+                        ft.Text("01–06 Jun", size=10),
+                        ft.Text("08–13 Jun", size=10),
+                    ], expand=2),
+                    ft.Column([
+                        ft.Text("Focus Area", weight=ft.FontWeight.BOLD, size=11),
+                        ft.Text("Group formation", size=10),
+                        ft.Text("Brainstorming ideas", size=10),
+                        ft.Text("Pitch Week begins", size=10),
+                        ft.Text("Pitch Week closes", size=10),
+                        ft.Text("SRS start", size=10),
+                        ft.Text("SRS development", size=10),
+                        ft.Text("SRS requirements", size=10),
+                        ft.Text("SRS submission", size=10),
+                        ft.Text("Figma design start", size=10),
+                        ft.Text("Core screens design", size=10),
+                        ft.Text("Figma completion", size=10),
+                        ft.Text("Prototype refinement", size=10),
+                        ft.Text("Live Demo", size=10),
+                        ft.Text("Final Sprint", size=10),
+                    ], expand=3),
+                ], spacing=10)
             ], scroll=ft.ScrollMode.AUTO)
         ]),
         padding=20,
@@ -285,7 +329,7 @@ def main(page: ft.Page):
         center_title=False,
         bgcolor=ft.colors.SURFACE,
         actions=[
-            ft.IconButton(ft.icons.ADMIN_PANEL_SETTINGS_OUTLINED, on_click=handle_admin_click, tooltip="take me to admin_console"),
+            ft.IconButton(ft.icons.ADMIN_PANEL_SETTINGS_OUTLINED, on_click=handle_admin_click, tooltip="Admin Console"),
         ],
     )
 
@@ -306,7 +350,7 @@ def main(page: ft.Page):
         icon=ft.icons.CHAT_BUBBLE_ROUNDED,
         bgcolor=PRIMARY_COLOR,
         on_click=handle_message_click,
-        tooltip="messages"
+        tooltip="Messages"
     )
 
     page.add(
